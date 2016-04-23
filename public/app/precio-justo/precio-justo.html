@@ -1,0 +1,8 @@
+<div class="">
+  <div product-search on-search="vm.onSearch()"></div>
+  <ul>
+    <li ng-repeat="product in vm.searchedProducts">
+      <span class="span" ng-bind="product"></span>
+    </li>
+  </ul>
+</div>
