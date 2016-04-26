@@ -1,9 +1,10 @@
 <div class="">
   <div product-search on-search="vm.onSearch()"></div>
-  <ul>
-    <li ng-repeat="product in vm.searchedProducts">
-      <!-- TODO: cambiar nombres de variables -->
-      <span class="span" ng-bind="product.text"></span>
-    </li>
-  </ul>
+  <div class="">
+    <ul>
+      <li ng-repeat="product in vm.searchedProducts" ng-bind="product.text">
+        <!-- TODO: cambiar nombres de variables -->
+      </li>
+    </ul>
+  </div>
 </div>

@@ -20,8 +20,8 @@ module.exports = function(twitterTokens){
     }, queryString);
     console.log(queryString);
     var options = {
-      uri: "https://api.twitter.com/1.1/search/tweets.json?q=%23haiku+%23poetry",
-      // uri: "https://api.twitter.com/1.1/search/tweets.json?q=" + queryString,
+      // uri: "https://api.twitter.com/1.1/search/tweets.json?q=#haiku+#poetry",
+      uri: "https://api.twitter.com/1.1/search/tweets.json?q=" + queryString,
       method: "GET",
       headers: {
        "Authorization": "Bearer "+ twitterTokens.accessToken
