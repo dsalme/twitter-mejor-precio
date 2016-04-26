@@ -11,8 +11,9 @@
       vm.searchProduct = searchProduct;
 
       function searchProduct(product){
-        precioJustoService.searchProduct(product);
-        vm.onSearch();
+        precioJustoService.searchProduct(product).then(function(){
+            vm.onSearch();
+        });
       }
     }
 }());

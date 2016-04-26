@@ -10,7 +10,6 @@
 
         vm.onSearch = onSearch;
         vm.searchedProducts = [];
-
         function onSearch(){
           vm.searchedProducts = precioJustoService.getProductList();
         }

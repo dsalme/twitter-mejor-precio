@@ -3,9 +3,9 @@
   angular.module('precioJusto')
     .factory('precioJustoService', precioJustoService);
 
-    precioJustoService.$inject = ['$q'];
+    precioJustoService.$inject = ['$q', '$http'];
 
-    function precioJustoService($q){
+    function precioJustoService($q, $http){
       var publicInterface = {
         addProductToList: addProductToList,
         getProductList: getProductList,
@@ -13,7 +13,6 @@
         searchProduct: searchProduct
       }
       return publicInterface;
-
 
       function addProductToList(product){
         publicInterface.searchedProducts.push(product);
@@ -24,7 +23,21 @@
       }
 
       function searchProduct(product){
-        publicInterface.addProductToList(product)
+        // publicInterface.addProductToList(product)
+        var config = {
+          url: "/precioJusto",
+          method: "POST",
+          data: {
+            query: product
+          }
+        }
+        return $http(config).then(function(response){
+          console.log(response);
+          if(response.data && response.data.statuses){
+            publicInterface.searchedProducts = response.data.statuses;
+          }
+          return;
+        });
       }
     }
 }());
