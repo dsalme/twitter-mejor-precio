@@ -7,34 +7,33 @@
 
     function precioJustoService($q, $http){
       var publicInterface = {
-        addProductToList: addProductToList,
-        getProductList: getProductList,
-        searchedProducts: [],
-        searchProduct: searchProduct
+        getTweetList: getTweetList,
+        searchedTweets: [],
+        searchTweets: searchTweets
       }
       return publicInterface;
 
-      function addProductToList(product){
-        publicInterface.searchedProducts.push(product);
+      function getTweetList(){
+        return publicInterface.searchedTweets;
       }
 
-      function getProductList(){
-        return publicInterface.searchedProducts;
-      }
-
-      function searchProduct(product){
-        // publicInterface.addProductToList(product)
+      function searchTweets(query){
         var config = {
           url: "/precioJusto",
           method: "POST",
           data: {
-            query: product
+            query: query
           }
         }
         return $http(config).then(function(response){
           console.log(response);
+
           if(response.data && response.data.statuses){
-            publicInterface.searchedProducts = response.data.statuses;
+            var conGeo = response.data.statuses.filter(function(status){
+              if(status.geo !== null) return status;
+            })
+            console.log("conGeo", conGeo);
+            publicInterface.searchedTweets = response.data.statuses;
           }
           return;
         });

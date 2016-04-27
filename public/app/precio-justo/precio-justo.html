@@ -1,8 +1,9 @@
 <div class="">
-  <div product-search on-search="vm.onSearch()"></div>
-  <div class="">
-    <ul>
-      <li ng-repeat="product in vm.searchedProducts" ng-bind="product.text">
+  <div tweet-search on-search="vm.onSearch(query)"></div>
+  <div ng-show="vm.query">
+    <h3>Resultados para {{vm.query}}:</h3>
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="tweet in vm.searchedTweets" ng-bind="tweet.text">
         <!-- TODO: cambiar nombres de variables -->
       </li>
     </ul>
