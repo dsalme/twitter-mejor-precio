@@ -27,11 +27,8 @@ npm install
 Cuando termina eso:
 bower install
 
-Si se instalaron todas las dependencias, entran a la carpeta server:
-cd server
-
 Y escriben:
-node app.js
+node server/app.js
 
 Eso les deberia iniciar el servidor, en el puerto 3000, y va a logear algunas cosas en la terminal,
 no le den importancia por ahora.
