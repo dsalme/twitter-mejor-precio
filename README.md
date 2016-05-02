@@ -8,6 +8,12 @@ https://nodejs.org/en/
 Cuando instalan Node, se les instala gestor de paquetes JS que se llama npm.
 Si no tuvieron problemas instalando Node, pueden seguir.
 
+En la terminal escriben:
+npm install -g bower
+
+Esto instala globalmente otro gestor de paquetes (bower) para poder usar el comando "bower"
+desde cualquier carpeta.
+
 Una vez que instalaron Node, clonen el repositorio. Para clonar el repo, tienen que tener git instalado.
 Por las dudas, esta es la direccion para descargar git en windows: https://git-scm.com/download/win
 
