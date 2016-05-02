@@ -9,10 +9,11 @@
         var vm = this;
 
         vm.onSearch = onSearch;
-        vm.searchedProducts = [];
-
-        function onSearch(){
-          vm.searchedProducts = precioJustoService.getProductList();
+        vm.searchedTweets = [];
+        vm.query = "";
+        function onSearch(query){
+          vm.query = query;
+          vm.searchedTweets = precioJustoService.getTweetList();
         }
       }
 }());

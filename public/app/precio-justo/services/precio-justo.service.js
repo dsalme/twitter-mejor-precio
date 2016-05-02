@@ -3,28 +3,40 @@
   angular.module('precioJusto')
     .factory('precioJustoService', precioJustoService);
 
-    precioJustoService.$inject = ['$q'];
+    precioJustoService.$inject = ['$q', '$http'];
 
-    function precioJustoService($q){
+    function precioJustoService($q, $http){
       var publicInterface = {
-        addProductToList: addProductToList,
-        getProductList: getProductList,
-        searchedProducts: [],
-        searchProduct: searchProduct
+        getTweetList: getTweetList,
+        searchedTweets: [],
+        searchTweets: searchTweets
       }
       return publicInterface;
 
-
-      function addProductToList(product){
-        publicInterface.searchedProducts.push(product);
+      function getTweetList(){
+        return publicInterface.searchedTweets;
       }
 
-      function getProductList(){
-        return publicInterface.searchedProducts;
-      }
+      function searchTweets(query){
+        var config = {
+          url: "/precioJusto",
+          method: "POST",
+          data: {
+            query: query
+          }
+        }
+        return $http(config).then(function(response){
+          console.log(response);
 
-      function searchProduct(product){
-        publicInterface.addProductToList(product)
+          if(response.data && response.data.statuses){
+            var conGeo = response.data.statuses.filter(function(status){
+              if(status.geo !== null) return status;
+            })
+            console.log("conGeo", conGeo);
+            publicInterface.searchedTweets = response.data.statuses;
+          }
+          return;
+        });
       }
     }
 }());
