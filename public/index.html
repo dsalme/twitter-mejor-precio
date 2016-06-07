@@ -9,13 +9,17 @@
     <div class="main-container">
       <nav class="navbar navbar-default" role="navigation">
         <div class="col-sm-7 col-sm-offset-2" style={{marginTop: 15}}>
-          lalala
         </div>
       </nav>
 
     <div ui-view class="container"></div>
+
     </div>
     <script src="bower_components/angular/angular.js" charset="utf-8"></script>
+    <!-- <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMOPPMyljyRlgEGRJxyNc-FJhRBh_4s3A"></script> -->
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?sensor=false&language=es&key=AIzaSyBMOPPMyljyRlgEGRJxyNc-FJhRBh_4s3A&callback=initMap"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js" charset="utf-8"></script>
     <script src="app/app.js" charset="utf-8"></script>
     <script src="app/precio-justo/precio-justo.js" charset="utf-8"></script>
@@ -23,6 +27,9 @@
     <script src="app/precio-justo/services/precio-justo.service.js" charset="utf-8"></script>
     <script src="app/precio-justo/directives/tweet-search/precio-justo.tweet-search.js" charset="utf-8"></script>
     <script src="app/precio-justo/directives/tweet-search/precio-justo.tweet-search.controller.js" charset="utf-8"></script>
+    <script src="app/precio-justo/directives/mapGeoLocation/directive.mapGeoLocation.js" charset="utf-8"></script>
+    <script src="app/precio-justo/directives/mapGeoLocation/service.mapGeoLocation.js" charset="utf-8"></script>
+    <!-- <script src="app/precio-justo/directives/mapGeoLocation/mapGeoLocation.js" charset="utf-8"></script> -->
 
   </body>
 </html>
