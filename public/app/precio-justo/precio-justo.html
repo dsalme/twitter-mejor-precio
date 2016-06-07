@@ -4,12 +4,8 @@
     <div ng-show="vm.query" class="col-sm-6">
       <h3>Resultados para {{vm.query}}:</h3>
       <ul class="list-group">
-        <li class="list-group-item" ng-repeat="tweet in vm.searchedTweets">
-          <div>{{tweet.text}}</div>
-          <span ng-if="tweet.geo">
-            <button type="button" class="btn btn-sm btn-primary" ng-click="vm.setPosition(tweet)" name="button">Map</button>
-            <!-- <a target="_blank" href="http://maps.google.com/maps?z=12&t=m&q={{tweet.geo.coordinates[0]}}+{{tweet.geo.coordinates[1]}}">link</a> -->
-          </span>
+        <li class="list-group-item" ng-repeat="tweet in vm.searchedTweets | filter: search.text">
+          <div>{{tweet.text}} <button ng-if="tweet.geo" type="button" class="btn btn-sm btn-primary" ng-click="vm.setPosition(tweet)" name="button">Map</button></div>
         </li>
       </ul>
     </div>
