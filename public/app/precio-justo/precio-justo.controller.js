@@ -27,7 +27,7 @@
         function setPosition(tweet){
           vm.googleMapArgs.latitude = tweet.geo.coordinates[0];
           vm.googleMapArgs.longitude = tweet.geo.coordinates[1];
-          console.log(vm.googleMapArgs);
+          vm.googleMapArgs.text = tweet.text;
           $scope.$broadcast('newMapMarker', vm.googleMapArgs);
         }
       }
