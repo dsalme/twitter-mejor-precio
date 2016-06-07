@@ -29,10 +29,6 @@
           console.log(response);
 
           if(response.data && response.data.statuses){
-            var conGeo = response.data.statuses.filter(function(status){
-              if(status.geo !== null) return status;
-            })
-            console.log("conGeo", conGeo);
             publicInterface.searchedTweets = response.data.statuses;
           }
           return;
